@@ -27,19 +27,39 @@ public class AppointmentScheduler {
 
     /** TODO 2: Print appointments chronologically, or an empty-schedule message. */
     public void printSchedule() {
+        if (schedule.isEmpty()) {
+            System.out.println("There are no appointments in the schedule.");
+        }
+        for (Appointment appointment : schedule) {
+            System.out.println(appointment);
+        }
         // TODO: Use the TreeSet's sorted iteration order.
     }
 
     /** TODO 3: Cancel the appointment that STARTS at the given minute, if any. */
     public boolean cancel(int startMinutes) {
         // TODO: A temporary Appointment.keyAt(startMinutes) can act as a search key.
+        for (Appointment appointment : schedule) {
+            if (appointment.getStartMinutes() >= startMinutes) {
+                schedule.remove(appointment);
+            }
+        }
         return false;
     }
 
     /** TODO 4: Return the earliest appointment beginning at or after time. */
     public Appointment nextAtOrAfter(int minutes) {
         // TODO: TreeSet.ceiling(Appointment.keyAt(minutes)) is useful.
-        return null;
+        Appointment closest = null;
+        int closestTime = 0;
+        for (Appointment appointment : schedule) {
+            int timeDifference = Math.min(Math.abs(minutes - appointment.getStartMinutes()), Math.abs(minutes - appointment.getEndMinutes()));
+            if (closest == null || closestTime > timeDifference) {
+                closest = appointment;
+                closestTime = timeDifference;
+            }
+        }
+        return closest;
     }
 
     /**
