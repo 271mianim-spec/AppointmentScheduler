@@ -1,0 +1,6 @@
+BST-SCHEDULE-V1
+09:00-09:40  Algebra tutoring
+10:15-11:00  Computer Science help
+11:30-12:00  Precalculus review
+13:10-13:50  Geometry tutoring
+15:00-15:50  Exam preparation
