@@ -85,7 +85,7 @@ public class AppointmentScheduler {
     public void write(PrintWriter out) {
         out.println(FILE_HEADER);
         for (Appointment appointment : schedule) {
-            out.println(appointment);
+            out.println(appointment.toFileLine());
         }
 //        return;
         // TODO: Implement writing. Keep this exception until your code is ready.
